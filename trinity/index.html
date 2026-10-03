@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy: NDR Trinity</title>
+<style>
+:root { color-scheme: light; }
+body { margin: 0; background: #ffffff; color: #111111; font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 720px; margin: 0 auto; padding: 24px 16px 48px; }
+h1 { font-size: 1.6em; line-height: 1.25; margin: 0 0 12px; }
+h2 { font-size: 1.15em; margin: 28px 0 8px; }
+p, li { overflow-wrap: anywhere; }
+.meta { color: #333333; margin: 0 0 8px; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+th, td { text-align: left; vertical-align: top; border: 1px solid #cccccc; padding: 8px; }
+th { background: #f2f2f2; }
+td:first-child { font-weight: 600; white-space: nowrap; }
+@media (max-width: 520px) {
+  table, thead, tbody, tr, th, td { display: block; width: auto; }
+  thead { display: none; }
+  tr { border: 1px solid #cccccc; margin: 0 0 10px; }
+  td { border: 0; }
+  td:first-child { white-space: normal; border-bottom: 1px solid #e5e5e5; }
+}
+a { color: #0645ad; }
+footer { margin-top: 32px; color: #555555; font-size: 0.9em; }
+</style>
+</head>
+<body>
+<main>
+<h1>Privacy Policy: NDR Trinity</h1>
+
+<p class="meta"><strong>Effective date:</strong> 2026-09-25<br>
+<strong>App:</strong> NDR Trinity watch face for Garmin Connect IQ devices<br>
+<strong>Developer:</strong> NDRLabs (<a href="mailto:ndrlabs.co@gmail.com">ndrlabs.co@gmail.com</a>)</p>
+
+<h2>Summary</h2>
+
+<p>NDR Trinity does not collect, store or transmit any personal data to any server operated by the
+developer. It is a watch face that runs locally on your Garmin device. Everything it reads stays on
+your device or inside Garmin's own ecosystem.</p>
+
+<h2>What permissions NDR Trinity uses, and why</h2>
+
+<p>These are the permissions the Connect IQ Store will show, exactly the ones the app's manifest
+declares. Each is used only to draw the watch face.</p>
+
+<table>
+<thead>
+<tr><th>Permission</th><th>Why it is requested</th></tr>
+</thead>
+<tbody>
+<tr><td>ComplicationSubscriber</td><td>Reads Garmin's first-party complications so the face can show metrics such as training status, recovery time, sleep score, VO2 max, and sunrise and sunset, several of which have no other API. It also provides the only way a watch face can open a metric's own glance when you press and hold it. These values originate on your watch and are not sent anywhere.</td></tr>
+<tr><td>Positioning</td><td>Declared so that Garmin's own weather service will report its observation location; without this permission the weather service does not report it. The face uses that location only to point the sun compass and to mark on it where the sun rises and sets today. The sunrise and sunset times and the daylight dial come from Garmin's complications, which the watch computes itself. The app never calls Position.getInfo or Position.enableLocationEvents, so it never requests a location fix. Your position is never stored and never transmitted.</td></tr>
+<tr><td>SensorHistory</td><td>Reads the latest heart rate, Body Battery and Pulse Ox samples your watch has already stored, so a reading is shown when the live value or the complication has none yet. While the band shows your resting heart rate, it reads the heart rate history your watch has already stored, never more than the last six hours at a time and after that only the samples recorded since it last read, so the face can work out each day's resting rate itself and the week fills in one day at a time. While the band shows Body Battery, it reads up to the last six hours of Body Battery history, when the face has no stored trace yet and again after a gap of two hours or more, so the 24 hour trace does not start empty. All of this is read on the watch only. Nothing is streamed and nothing is uploaded.</td></tr>
+<tr><td>UserProfile</td><td>Reads your heart rate zones, so the heart rate gauge is scaled and coloured against your own zones, with a ceiling of 220 minus your age when no zones are set; your resting heart rate, as the gauge's floor, and its seven-day average, to show them; your running VO2 max, when the VO2 max complication has none; and your birth year and sex, so VO2 max is placed in your age and sex group the way Garmin Connect does it. Read-only, on-device only.</td></tr>
+</tbody>
+</table>
+
+<h2>What NDR Trinity does not do</h2>
+
+<ul>
+<li>No analytics, no telemetry and no crash-reporting code in the app. If the face stops with an
+error on a watch, Garmin's Connect IQ platform records the error and makes a report of it
+available to the developer. The report holds the error, where in the face's code it happened, the
+face's version, the watch model, its firmware and language, and when and how often it happened.
+The report the developer receives carries no name, account or device identifier. The developer
+keeps these reports and uses them only to find and fix errors in the face.</li>
+<li>No network request to any server operated by the developer. The app has no Communications
+permission at all, so it cannot make one.</li>
+<li>No access to your contacts, messages or notification CONTENT. It reads the notification COUNT and
+nothing else.</li>
+<li>No advertising.</li>
+</ul>
+
+<h2>Third party services</h2>
+
+<p>None. NDR Trinity reads only Garmin's own APIs on the watch: <code>Toybox.Activity</code>,
+<code>Toybox.ActivityMonitor</code>, <code>Toybox.Complications</code>, <code>Toybox.SensorHistory</code>, <code>Toybox.System</code>,
+<code>Toybox.UserProfile</code> and <code>Toybox.Weather</code>, and <code>Toybox.Position</code> only to read the location Garmin's
+weather reports, never to take a fix. There is no third party weather provider, no third party
+analytics and no third party network service.</p>
+
+<h2>What is stored on your watch</h2>
+
+<p>Your settings, in the device's own per-app properties store: the layout, the clock face, the clock
+style, the theme, the always-on mode, the battery reading, which metric sits in each position of each
+layout, and your calorie goal. The app also keeps two small histories of its own in the device's
+storage, so the trace and the week survive a restart: the last 24 hourly Body Battery levels, with
+the hour they were last updated; and the resting heart rate of each of the last seven days, which the
+face works out itself as the lowest 30 minute average heart rate of the day, with six running
+numbers for the day in progress (the day, which half hour it is in, that half hour's total and
+number of samples, the day's lowest half hour so far, and the time of the last heart rate sample
+read).</p>
+
+<p>The two histories live only on the watch. Your settings are kept on the watch and also in Garmin's
+Connect IQ app on your phone, where you can change them. Neither is sent to the developer.
+Uninstalling the face erases what it keeps on the watch.</p>
+
+<h2>Children</h2>
+
+<p>NDR Trinity is a watch face. It is not directed at, and does not knowingly collect data from, anyone
+under 13.</p>
+
+<h2>Changes to this policy</h2>
+
+<p>Any change to how NDR Trinity handles data will be made in this document and named in the Connect IQ
+Store listing's release notes for the version it applies to.</p>
+
+<h2>Contact</h2>
+
+<p>For privacy questions: <strong><a href="mailto:ndrlabs.co@gmail.com">ndrlabs.co@gmail.com</a></strong></p>
+<footer>NDRLabs. <a href="../">All NDRLabs privacy policies</a></footer>
+</main>
+</body>
+</html>
